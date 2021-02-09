@@ -15,10 +15,10 @@ function router() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="/poke/list">
+          <Route exact path="/poke/list/:id">
             <PokeList />
           </Route>
-          <Route exact path="/poke/details">
+          <Route exact path="/poke/details/:id">
             <PokeDetails />
           </Route>
         </Switch>
