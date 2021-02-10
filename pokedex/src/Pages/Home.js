@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import CardPokes from '../Componentes/CardPokes';
 import Header from '../Componentes/Header';
 import ContextoPokedex from '../Context/Context';
-import { HomeStyle, PokeCard } from '../Styled/Styled'
+import { HomeStyle, PokeCard, PokeCall, ButtonSmall, PokePhoto, LetterP } from '../Styled/Styled'
 
 function Home() {
   const pokemon = useContext(ContextoPokedex);
@@ -18,15 +18,20 @@ function Home() {
 
   return (
     <div>
-      <Header personalList={personalList} ></Header>
+      {/* <Header ></Header> */}
       <HomeStyle>
         {pokemon && pokemon.map((pokeitem) => {
           return (
             <div>
-              <p>{pokeitem.name}</p>
-              <CardPokes url={pokeitem.url}> </CardPokes>
-              <button onClick={() => AddPoke(pokeitem.url)}> adicionar </button>
-              <button>detalhes</button>
+              <LetterP>{pokeitem.name}</LetterP>
+              <PokeCard >
+                <PokePhoto url={pokeitem.url}></PokePhoto>
+                <PokeCall>
+                  <ButtonSmall theme={{ main: "#BC3921" }} onClick={() => AddPoke(pokeitem.url)}> adicionar </ButtonSmall>
+                  <ButtonSmall> detalhes</ButtonSmall>
+                </PokeCall> 
+              
+              </PokeCard>
             </div>
           )
         })}
