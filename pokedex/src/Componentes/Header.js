@@ -1,5 +1,5 @@
 import React from 'react'
-import { HeaderStyle } from '../Styled/Styled'
+import { HeaderStyle, Button } from '../Styled/Styled'
 import { useHistory } from "react-router-dom"
 import goToPokeList from '../Routes/Cordinator'
 
@@ -16,8 +16,8 @@ function Header(props) {
 
   return (
     <HeaderStyle>
-      <button onClick={() => goToPokeList(history,props.personalList)}> ir pokeList</button>
-      <button> ir para pokedex</button>
+      <Button onClick={() => goToPokeList(history,props.personalList)}> ir pokeList</Button>
+      <Button theme={{ main: "#1082b8" }}> ir para pokedex</Button>
     </HeaderStyle>
   )
 }
