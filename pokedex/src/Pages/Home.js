@@ -1,9 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import CardPokes from '../Componentes/CardPokes';
 import GlobalStateContext from '../Context/GlobalStateContext';
-import Header from '../Componentes/Header';
-import ContextoPokedex from '../Context/Context';
-import { HomeStyle, PokeCard, PokeCall, ButtonSmall, PokePhoto, LetterP } from '../Styled/Styled'
+import { HomeStyle} from '../Styled/Styled'
 
 
 function Home(props) {
@@ -44,8 +42,7 @@ function Home(props) {
     <div>
        <HomeStyle>
         {Pokelist}
-      <HomeStyle>
-        {pokemon && pokemon.map((pokeitem) => {
+            {/* {pokemon && pokemon.map((pokeitem) => {
           return (
             <div>
               <LetterP>{pokeitem.name}</LetterP>
@@ -59,10 +56,10 @@ function Home(props) {
               </PokeCard>
             </div>
           )
-        })}
-
+        })} */}
       </HomeStyle>
-    </div>
+        <div style={{backgroundColor:'#d4d4d3', height:'20px'}}></div>
+    </div>    
   )
 }
 

@@ -2,48 +2,52 @@ import styled from 'styled-components'
 
 export const MainContainer = styled.div`
 display:grid;
-grid-template-rows:10% 90%;
+grid-template-rows:10% 88% 2%;
 background-color:#f6f6f6;
-width:100vw;
+width:100%;
 height:100vh;
+background-color:#d4d4d3;
 `
 
 export const HeaderStyle = styled.div`
 grid-row:1;
 background-color:#555251;
-width:99.5%;
+width:100%;
 height:100%;
 `
 
 export const HomeStyle = styled.div`
 display:grid;
-grid-template-columns: repeat(4,1fr);
+grid-template-columns: repeat(4,20%);
 grid-row:2;
-margin:auto;
 background-color:#d4d4d3;
-width:99.5%;
-height:330%;
-gap:10px;
+width:100%;
+height:87vh;
+row-gap:4%;
 justify-items:center;
-
+justify-content:center;
+overflow:scroll;
+overflow-x:hidden;
 `
 
 export const PokeCard = styled.div`
 display:flex;
 flex-wrap:wrap;
-justify-content:space-around;
-margin-top:1em;
-background-color:#f6f6f6;
-width:200px;
-height:230px;
+margin-top:2em;
+width:85%;
+height:100%;
 border-width: 1px;
+color: black;
+border-top-right-radius:10px;
+border-top-left-radius:10px;
+opacity: 0.7;
 `
 
-export const PokePhoto = styled.div`
+export const PokePhoto = styled.img`
 display:flex;
 flex-direction:row;
-width: 200px;
-height: 200px;
+width: 100%;
+height: 100%;
 `
 ///POKEDETAILS///
 export const PokeDetailsGrid = styled.div`
@@ -106,11 +110,19 @@ grid-row:1;
 background-color:#f6f6f6;
 `
 export const PokeCall = styled.div`
-display: flex;
-flex-direction:inline;
-justify-content: space-around;
-width: 200px;
-height: 30px;
+display:flex;
+flex-wrap:wrap;
+background-color:#f6f6f6; 
+color: black;
+border-radius: 10px;
+box-shadow: 0px 0.5px 15px gray;
+/* justify-content:space-around; */
+padding-bottom:4%;
+:hover{
+  cursor: pointer;
+  left: 9px;   
+  transform: scale(1.1);
+}
 `;
 
 export const Button = styled.button`
