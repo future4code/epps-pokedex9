@@ -1,35 +1,46 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import CardPokes from '../Componentes/CardPokes';
-import Header from '../Componentes/Header';
-import ContextoPokedex from '../Context/Context';
-import { HomeStyle, PokeCard } from '../Styled/Styled'
+import GlobalStateContext from '../Context/GlobalStateContext';
+import { HomeStyle } from '../Styled/Styled'
 
-function Home() {
-  const pokemon = useContext(ContextoPokedex);
+function Home(props) {
+  const { states, requests, setters } = useContext(GlobalStateContext);
 
-  const personalList = []
+  useEffect(() => {
+    requests.getPokemon()
+   }, [])
 
-  function AddPoke(url) {
-    const novaLista = ({ ...personalList.push(url) })
-    console.log('personalList', personalList)
+  const addPoke = (newItem) => {
+    const index = states.PersonalList.findIndex((i) => i.name === newItem.name);
+    let newList = [...states.PersonalList];
+
+    if (index === -1) {
+      newList.push({ ...newItem, amount: 1 });
+      alert(`${newItem.name} foi adicionado ao seu time!`);
+    }
+    else {
+      alert(`${newItem.name} Já Faz parte do seu time`);
+    }
+    setters.setPersonalList(newList)
   }
 
-
+  const Pokelist =
+    states.pokemon &&
+    states.pokemon.map((item) => {
+      return (
+        <CardPokes
+          key={item.url}
+          name={item.name}
+          url={item.url}
+          addPoke={() => addPoke(item)}
+        />
+      )
+    })
 
   return (
     <div>
-      <Header personalList={personalList} ></Header>
-      <HomeStyle>
-        {pokemon && pokemon.map((pokeitem) => {
-          return (
-            <div>
-              <p>{pokeitem.name}</p>
-              <CardPokes url={pokeitem.url}> </CardPokes>
-              <button onClick={() => AddPoke(pokeitem.url)}> adicionar </button>
-              <button>detalhes</button>
-            </div>
-          )
-        })}
+       <HomeStyle>
+        {Pokelist}
       </HomeStyle>
     </div>
   )
