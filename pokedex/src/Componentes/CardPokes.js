@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { PokeCard } from '../Styled/Styled';
+import { ButtonSmall, LetterP, PokeCall, PokeCard, PokePhoto } from '../Styled/Styled';
 
 
 function CardPokes(props) {
@@ -17,15 +17,18 @@ function CardPokes(props) {
         console.log(err)
       })
   }, [])
-  
+
   return (
     <PokeCard>
-      <img src={pokeImg}></img>
-      <p>{props.name}</p>
-      `{changePage ?
-      <button onClick={props.addPoke || setchangePage(!changePage)}> adicionar </button>
-      :
-      <button onClick={props.removePoke || setchangePage(!changePage)}> remover </button>}`
+      <PokeCall>
+      <LetterP>{props.name}</LetterP>
+      <PokePhoto src={pokeImg}></PokePhoto>
+        {changePage ?
+          <ButtonSmall theme={{ main: "#319795" }} onClick={props.addPoke || setchangePage(!changePage)}> Adicionar </ButtonSmall>
+          :
+          <ButtonSmall onClick={props.removePoke || setchangePage(!changePage)}> Remover </ButtonSmall>}
+          <ButtonSmall> Detalhes </ButtonSmall>
+      </PokeCall>
     </PokeCard>
   )
 }
