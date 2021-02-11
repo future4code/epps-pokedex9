@@ -45,7 +45,7 @@ flex-direction:row;
 width: 200px;
 height: 200px;
 `
-
+///POKEDETAILS///
 export const PokeDetailsGrid = styled.div`
 display:grid;
 grid-template-columns: repeat(3,1fr);
@@ -53,15 +53,17 @@ grid-template-rows: repeat(3,1fr);
 width:95%;
 height:95%;
 margin: auto;
-margin-top:2em;
-background-color:#FA8072;
+background-color:#D4D4D3;
 `
 export const PokeImgFront = styled.div`
 display:grid;
 grid-column:1;
 grid-row:1;
+margin:auto;
+margin-top:1em;
 width:95%;
 height:95%;
+background-color:#f6f6f6;
 `
 export const PokeImgBack = styled.div`
 display:grid;
@@ -69,6 +71,9 @@ grid-column:1;
 grid-row:2;
 width:95%;
 height:95%;
+margin:auto;
+margin-top:1em;
+background-color:#f6f6f6;
 `
 export const PokeAttack = styled.div`
 display:grid;
@@ -76,6 +81,9 @@ grid-column:2;
 grid-row:1/4;
 width:95%;
 height:95%;
+margin-top:1em;
+margin: auto;
+background-color:#f6f6f6;
 `
 export const PokePowers = styled.div`
 display:grid;
@@ -83,14 +91,19 @@ width:95%;
 height:95%;
 grid-column:3;
 grid-row:2/4;
+margin:auto;
+background-color:#f6f6f6;
 `
 
 export const PokeType = styled.div`
 display:grid;
 width:95%;
-height:95%;
+height:85%;
+margin-top:1em;
+margin:auto;
 grid-column:3;
 grid-row:1;
+background-color:#f6f6f6;
 `
 export const PokeCall = styled.div`
 display: flex;
@@ -111,7 +124,7 @@ export const Button = styled.button`
 `;
   Button.defaultProps = {
     theme: {
-      main: "#BC3921"
+      main: "tomato"
     }
 }
 
@@ -126,7 +139,7 @@ export const ButtonSmall = styled.button`
 `;
   ButtonSmall.defaultProps = {
     theme: {
-      main: "#1082b8"
+      main: "tomato"
     }
 }
 
@@ -137,4 +150,6 @@ font-weight:500;
 text-transform:capitalize;
 margin-bottom:-0.5em;
 font-size:1.5vw;
+background-size: 14px;
+line-height:50%;
 `;

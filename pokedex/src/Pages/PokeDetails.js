@@ -1,22 +1,22 @@
 import React from 'react'
-import { PokeDetailsGrid, PokeAttack, PokeImgFront, PokePowers, PokeType,PokeImgBack } from '../Styled/Styled'
+import { PokeDetailsGrid, PokeAttack, PokeImgFront, PokePowers, PokeType,PokeImgBack, LetterP } from '../Styled/Styled'
 
 function PokeDetails() {
   return (
     <PokeDetailsGrid>
-      <PokeAttack> Poke ataques</PokeAttack>
-      <PokeImgFront>IMG1</PokeImgFront>
-      <PokeImgBack>IMG2</PokeImgBack>
+      <PokeAttack><LetterP>Poke ataques</LetterP> </PokeAttack>
+      <PokeImgFront><LetterP>IMG1</LetterP></PokeImgFront>
+      <PokeImgBack><LetterP>IMG2</LetterP></PokeImgBack>
       <PokePowers>
-        Poderes
-        hp: 60
-        attack: 62
-        defense: 63
-        special-attack: 80
-        special-defense: 80
-        speed: 60
+        <LetterP>Poderes</LetterP>
+        <LetterP> hp: 60</LetterP>
+        <LetterP>attack: 62</LetterP>
+        <LetterP>defense: 63</LetterP>
+        <LetterP>special-attack: 80</LetterP>
+        <LetterP>special-defense: 80</LetterP>
+        <LetterP>speed: 60</LetterP>     
       </PokePowers>
-      <PokeType> poke type</PokeType>
+      <PokeType><LetterP>poke type</LetterP> </PokeType>
     </PokeDetailsGrid>
   )
 }
