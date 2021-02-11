@@ -1,23 +1,15 @@
-import React from 'react'
-import { HeaderStyle, Button } from '../Styled/Styled'
+import React, { useState } from 'react'
+import { HeaderStyle } from '../Styled/Styled'
 import { useHistory } from "react-router-dom"
-import goToPokeList from '../Routes/Cordinator'
+import { goToPokeList, goToHome } from '../Routes/Cordinator'
 
 function Header(props) {
   const history = useHistory()
-
-
-
-  const goToPokeList = (history,props) => {
-    history.push(`/poke/list/${props}`)
-  }
-
-
+  const [changePage, setchangePage] = useState(false);
 
   return (
     <HeaderStyle>
-      <Button onClick={() => goToPokeList(history,props.personalList)}> ir pokeList</Button>
-      <Button theme={{ main: "#319795" }}> ir para pokedex</Button>
+      {changePage ? <button onClick={() => goToHome(history) || setchangePage(!changePage)}> Home </button> : <button onClick={() => goToPokeList(history) || setchangePage(!changePage)}> ir pokeList</button>}
     </HeaderStyle>
   )
 }

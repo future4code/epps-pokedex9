@@ -1,28 +1,14 @@
-
-import axios from 'axios';
 import './App.css';
-import ContextoPokedex from './Context/Context';
+import GlobalState from './Global/GlobalState';
 import Router from './Routes/Router';
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
 function App() {
-  const [pokemon, setPokemon] = useState()
-
-  useEffect(() => {
-    axios.get("https://pokeapi.co/api/v2/pokemon/")
-      .then((res) => {
-        setPokemon(res.data.results)
-      })
-      .catch((err) => {
-        console.log(err)
-        window.alert("Erro get")
-      })
-  }, [])
 
   return (
-    <ContextoPokedex.Provider value={pokemon}>
+    <GlobalState>
       <Router />
-    </ContextoPokedex.Provider>
+    </GlobalState>
   );
 }
 

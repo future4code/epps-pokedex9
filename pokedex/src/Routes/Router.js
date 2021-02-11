@@ -12,13 +12,13 @@ function router() {
       <BrowserRouter>
         <Header />
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/home">
             <Home />
-          </Route> 
-          <Route exact path="/poke/list/:id">
+          </Route>
+          <Route exact path="/poke/list">
             <PokeList />
           </Route>
-          <Route exact path="/poke/details"> 
+          <Route exact path="/poke/details">
             <PokeDetails />
           </Route>
         </Switch>

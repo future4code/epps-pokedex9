@@ -1,18 +1,43 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
-import { PokeCard } from '../Styled/Styled'
+import React, { useContext, useEffect, useState } from 'react'
+import GlobalStateContext from '../Context/GlobalStateContext';
+import CardPokes from '../Componentes/CardPokes'
 
-function PokeList() {
-  const params = useParams
+function PokeList(props) {
+  const { states, setters } = useContext(GlobalStateContext);
 
-  console.log('params', params)
+
+
+
+  const removePoke = (itemToRemove) => {
+    const index = states.PersonalList.findIndex((i) => i.name === itemToRemove.name);
+    let newList = [...states.PersonalList];
+    if (newList[index].amount === 1) {
+      newList.splice(index, 1);
+    } else {
+      newList[index].amount -= 1;
+    }
+    setters.setPersonalList(newList);
+  };
+
+
+  const Pokelist = states.PersonalList && states.PersonalList.map((item) => {
+    return (
+      <CardPokes
+        key={item.url}
+        name={item.name}
+        url={item.url}
+        removePoke={() => removePoke(item)}
+      />
+    );
+  });
+
+
   return (
+
     <div>
-      <PokeCard>
-        <button> adicionar</button>
-        <button> detalhes</button>
-      </PokeCard>
+      {Pokelist}
     </div>
+
   )
 }
 
