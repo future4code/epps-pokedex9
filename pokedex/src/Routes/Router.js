@@ -14,11 +14,11 @@ function router() {
         <Switch>
           <Route exact path="/">
             <Home />
-          </Route>
+          </Route> 
           <Route exact path="/poke/list/:id">
             <PokeList />
           </Route>
-          <Route exact path="/poke/details/:id">
+          <Route exact path="/poke/details"> 
             <PokeDetails />
           </Route>
         </Switch>

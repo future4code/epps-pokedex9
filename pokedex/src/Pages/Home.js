@@ -18,7 +18,6 @@ function Home() {
 
   return (
     <div>
-      {/* <Header ></Header> */}
       <HomeStyle>
         {pokemon && pokemon.map((pokeitem) => {
           return (
@@ -27,7 +26,7 @@ function Home() {
               <PokeCard >
                 <PokePhoto url={pokeitem.url}></PokePhoto>
                 <PokeCall>
-                  <ButtonSmall theme={{ main: "#BC3921" }} onClick={() => AddPoke(pokeitem.url)}> adicionar </ButtonSmall>
+                  <ButtonSmall theme={{ main: "#319795" }} onClick={() => AddPoke(pokeitem.url)}> adicionar </ButtonSmall>
                   <ButtonSmall> detalhes</ButtonSmall>
                 </PokeCall> 
               
