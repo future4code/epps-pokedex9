@@ -1,7 +1,10 @@
 import React, { useContext, useEffect } from 'react'
 import CardPokes from '../Componentes/CardPokes';
 import GlobalStateContext from '../Context/GlobalStateContext';
-import { HomeStyle } from '../Styled/Styled'
+import Header from '../Componentes/Header';
+import ContextoPokedex from '../Context/Context';
+import { HomeStyle, PokeCard, PokeCall, ButtonSmall, PokePhoto, LetterP } from '../Styled/Styled'
+
 
 function Home(props) {
   const { states, requests, setters } = useContext(GlobalStateContext);
@@ -41,6 +44,23 @@ function Home(props) {
     <div>
        <HomeStyle>
         {Pokelist}
+      <HomeStyle>
+        {pokemon && pokemon.map((pokeitem) => {
+          return (
+            <div>
+              <LetterP>{pokeitem.name}</LetterP>
+              <PokeCard >
+                <PokePhoto url={pokeitem.url}></PokePhoto>
+                <PokeCall>
+                  <ButtonSmall theme={{ main: "#319795" }} onClick={() => AddPoke(pokeitem.url)}> adicionar </ButtonSmall>
+                  <ButtonSmall> detalhes</ButtonSmall>
+                </PokeCall> 
+              
+              </PokeCard>
+            </div>
+          )
+        })}
+
       </HomeStyle>
     </div>
   )
