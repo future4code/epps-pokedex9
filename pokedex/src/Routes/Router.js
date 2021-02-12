@@ -18,7 +18,7 @@ function router() {
           <Route exact path="/poke/list">
             <PokeList />
           </Route>
-          <Route exact path="/poke/details">
+          <Route exact path='/poke/details/'>
             <PokeDetails />
           </Route>
         </Switch>
