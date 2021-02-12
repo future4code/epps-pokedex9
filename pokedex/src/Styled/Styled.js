@@ -29,7 +29,20 @@ justify-content:center;
 overflow:scroll;
 overflow-x:hidden;
 `
-
+export const ListStyle = styled.div`
+display:grid;
+grid-template-columns: repeat(4,25%);
+grid-template-rows:20%;
+grid-row:2;
+background-color:#d4d4d3;
+width:100%;
+height:87vh;
+row-gap:4%;
+justify-items:center;
+justify-content:center;
+overflow:scroll;
+overflow-x:hidden;
+`
 export const PokeCard = styled.div`
 display:flex;
 flex-wrap:wrap;
@@ -52,14 +65,16 @@ height: 100%;
 ///POKEDETAILS///
 export const PokeDetailsGrid = styled.div`
 display:grid;
-grid-template-columns: repeat(3,1fr);
-grid-template-rows: repeat(3,1fr);
-width:95%;
-height:95%;
+grid-template-columns: repeat(3,25%);
+grid-template-rows: repeat(3,33%);
+width:100%;
+height:100%;
 margin: auto;
 background-color:#D4D4D3;
+justify-content:center;
+/* overflow:scroll; */
 `
-export const PokeImgFront = styled.div`
+export const PokeImgFront = styled.img`
 display:grid;
 grid-column:1;
 grid-row:1;
@@ -68,8 +83,10 @@ margin-top:1em;
 width:95%;
 height:95%;
 background-color:#f6f6f6;
+box-shadow: 0px 0.5px 15px gray;
+border-radius:10px;
 `
-export const PokeImgBack = styled.div`
+export const PokeImgBack = styled.img`
 display:grid;
 grid-column:1;
 grid-row:2;
@@ -78,6 +95,8 @@ height:95%;
 margin:auto;
 margin-top:1em;
 background-color:#f6f6f6;
+box-shadow: 0px 0.5px 15px gray;
+border-radius:10px;
 `
 export const PokeAttack = styled.div`
 display:grid;
@@ -88,6 +107,8 @@ height:95%;
 margin-top:1em;
 margin: auto;
 background-color:#f6f6f6;
+box-shadow: 0px 0.5px 15px gray;
+border-radius:10px;
 `
 export const PokePowers = styled.div`
 display:grid;
@@ -97,6 +118,8 @@ grid-column:3;
 grid-row:2/4;
 margin:auto;
 background-color:#f6f6f6;
+box-shadow: 0px 0.5px 15px gray;
+border-radius:10px;
 `
 
 export const PokeType = styled.div`
@@ -108,6 +131,8 @@ margin:auto;
 grid-column:3;
 grid-row:1;
 background-color:#f6f6f6;
+box-shadow: 0px 0.5px 15px gray;
+border-radius:10px;
 `
 export const PokeCall = styled.div`
 display:flex;
@@ -116,7 +141,6 @@ background-color:#f6f6f6;
 color: black;
 border-radius: 10px;
 box-shadow: 0px 0.5px 15px gray;
-/* justify-content:space-around; */
 padding-bottom:4%;
 :hover{
   cursor: pointer;

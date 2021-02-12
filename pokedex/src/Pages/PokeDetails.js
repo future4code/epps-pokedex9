@@ -1,22 +1,68 @@
-import React from 'react'
-import { PokeDetailsGrid, PokeAttack, PokeImgFront, PokePowers, PokeType,PokeImgBack, LetterP } from '../Styled/Styled'
+import axios from 'axios'
+import React, { useContext, useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import GlobalStateContext from '../Context/GlobalStateContext';
+import { PokeDetailsGrid, PokeAttack, PokeImgFront, PokePowers, PokeType, PokeImgBack, LetterP } from '../Styled/Styled'
+
 
 function PokeDetails() {
+  const { states, requests, setters } = useContext(GlobalStateContext);
+  const [pokeInfo, setPokeInfo] = useState([])
+  const [pokeImgs, setPokeImgs] = useState([])
+  const [pokeName, setPokeName] = useState('')
+
+  useEffect(() => {
+    axios.get(`${states.url}`)
+      .then((res) => {
+        setPokeInfo(res.data)
+        setPokeImgs(res.data.sprites)
+        setPokeName(res.data.species.name)
+        console.log('res.data', res.data)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }, [])
+
+
   return (
     <PokeDetailsGrid>
-      <PokeAttack><LetterP>Poke ataques</LetterP> </PokeAttack>
-      <PokeImgFront><LetterP>IMG1</LetterP></PokeImgFront>
-      <PokeImgBack><LetterP>IMG2</LetterP></PokeImgBack>
+            <PokeAttack>
+        <h2>Principais Ataques</h2>
+        {
+          pokeInfo.moves &&
+          pokeInfo.moves.slice(0, 5).map((item) => {
+            return (
+              <LetterP key={item.move.name}>{item.move.name}</LetterP>
+            )
+          })
+        }
+      </PokeAttack>
+      <h2>{pokeName}</h2>
+      <PokeImgBack src={pokeImgs.back_default}></PokeImgBack>
+      <PokeImgFront src={pokeImgs.front_default}></PokeImgFront>
       <PokePowers>
-        <LetterP>Poderes</LetterP>
-        <LetterP> hp: 60</LetterP>
-        <LetterP>attack: 62</LetterP>
-        <LetterP>defense: 63</LetterP>
-        <LetterP>special-attack: 80</LetterP>
-        <LetterP>special-defense: 80</LetterP>
-        <LetterP>speed: 60</LetterP>     
+        <h2>Status</h2>
+        {
+          pokeInfo.stats &&
+          pokeInfo.stats.map((item) => {
+            return (
+              <LetterP key={item.stat.name}>{item.stat.name}:{item.base_stat}</LetterP>
+            )
+          })
+        }
       </PokePowers>
-      <PokeType><LetterP>poke type</LetterP> </PokeType>
+      <PokeType>
+        <h2>Tipo</h2>
+        {
+          pokeInfo.types &&
+          pokeInfo.types.map((item) => {
+            return (
+              <LetterP key={item.type.name}>{item.type.name}</LetterP>
+            )
+          })
+        }
+      </PokeType>
     </PokeDetailsGrid>
   )
 }
