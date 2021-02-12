@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { HeaderStyle } from '../Styled/Styled'
+import { HeaderStyle,HeaderBanner,HomeButton } from '../Styled/Styled'
 import { useHistory } from "react-router-dom"
 import { goToPokeList, goToHome } from '../Routes/Cordinator'
 
@@ -9,7 +9,9 @@ function Header(props) {
 
   return (
     <HeaderStyle>
-      {changePage ? <button onClick={() => goToHome(history) || setchangePage(!changePage)}> Home </button> : <button onClick={() => goToPokeList(history) || setchangePage(!changePage)}> ir pokeList</button>}
+      {changePage ? <HomeButton src='https://cdn.bulbagarden.net/upload/0/01/Pok%C3%A9mon_HOME_logo.png' onClick={() => goToHome(history) || setchangePage(!changePage)}/> : <HomeButton src='https://imgur.com/ZzBVedD.png' onClick={() => goToPokeList(history) || setchangePage(!changePage)}/>}
+      
+      <HeaderBanner src='https://i.imgur.com/rSf8855.png'/>
     </HeaderStyle>
   )
 }
