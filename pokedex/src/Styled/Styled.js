@@ -117,6 +117,9 @@ height:100%;
 background-color:#D4D4D3;
 justify-content:center;
 grid-gap:2%;
+@media (min-width:800px) and (max-width: 1920px) {
+  grid-template-columns: repeat(3,20%);
+  };
 `
 export const PokeCardName = styled.div`
 display:flex;
