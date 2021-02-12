@@ -6,6 +6,6 @@ export const goToPokeList = (history) => {
   history.push("/poke/list");
 };
 export const goToHome = (history) => {
-  history.push("/home");
+  history.push("/");
 };
 
